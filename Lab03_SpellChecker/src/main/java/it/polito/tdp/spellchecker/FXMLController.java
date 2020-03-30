@@ -6,6 +6,7 @@ package it.polito.tdp.spellchecker;
 
 import java.math.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -73,12 +74,12 @@ public class FXMLController {
     	model.loadDictionary(language);
     	
     	String[] words = text.split("\\s+");
-    	List<String> inputTextList = new LinkedList<String>();
+    	List<String> inputTextList = new ArrayList<String>();
     	for(String s : words) {
     		inputTextList.add(s);
     	}
-    	List<RichWord> checkedText = new LinkedList<RichWord>();
-    	checkedText = model.spellTextCheck(inputTextList);
+    	List<RichWord> checkedText = new ArrayList<RichWord>();
+    	checkedText = model.spellCheckTextLinear(inputTextList);
     	String errors = "";
     	int numWrong = 0;
     	for(RichWord rw : checkedText) {
